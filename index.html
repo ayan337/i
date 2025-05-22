@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Summer Camp - Fake Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f1f1f1;
+      padding-bottom: 50px;
+    }
+
+    .page {
+      display: none;
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      background: white;
+      margin-top: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    ul {
+      line-height: 1.6;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 15px;
+      display: block;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button, .btn {
+      background-color: #2196f3;
+      color: white;
+      border: none;
+      padding: 12px;
+      margin-top: 20px;
+      width: 100%;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: block;
+    }
+
+    .btn:hover {
+      background-color: #0b7dda;
+    }
+
+    .success {
+      text-align: center;
+      color: green;
+    }
+
+    .note {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Page 1: Home -->
+<div id="home" class="page" style="display: block;">
+  <h1>🌞 Summer Camp 2025</h1>
+  <h2>GD Goenka, Vasant Kunj, New Delhi</h2>
+  <p style="text-align: center;">For Kids Aged 5–14 | 20–25 May 2025</p>
+  <h3>Activities:</h3>
+  <ul>
+    <li>Hide and Seek</li>
+    <li>Tag</li>
+    <li>Pool Party</li>
+    <li>Treasure Hunt</li>
+    <li>Dance-Off</li>
+    <li>Art & Craft</li>
+    <li>Obstacle Course</li>
+    <li>Story Time</li>
+    <li>Music & Drumming</li>
+    <li>Talent Show</li>
+    <li>Nature Walk</li>
+    <li>Mini Olympics</li>
+    <li>Face Painting</li>
+    <li>Clay Modeling</li>
+    <li>Water Games</li>
+    <li>Team Games</li>
+    <li>Balloon Burst</li>
+    <li>Bracelet Making</li>
+  </ul>
+  <button onclick="showPage('register')">📝 Register Now</button>
+</div>
+
+<!-- Page 2: Registration Form -->
+<div id="register" class="page">
+  <h2>Registration Form</h2>
+  <form id="registrationForm" onsubmit="event.preventDefault(); showPage('payment');">
+    <label for="name">Child's Name:</label>
+    <input type="text" id="name" required>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" min="5" max="14" required>
+
+    <label for="parent">Parent/Guardian Name:</label>
+    <input type="text" id="parent" required>
+
+    <label for="email">Parent Email:</label>
+    <input type="email" id="email" required>
+
+    <label for="phone">Contact Number:</label>
+    <input type="tel" id="phone" required>
+
+    <label for="days">Select Camp Days:</label>
+    <select id="days" required>
+      <option value="">-- Choose One --</option>
+      <option value="full">Full Camp (20–25 May)</option>
+      <option value="first3">First 3 Days</option>
+      <option value="last2">Last 2 Days</option>
+    </select>
+
+    <button type="submit">Proceed to Payment</button>
+  </form>
+</div>
+
+<!-- Page 3: Payment -->
+<div id="payment" class="page">
+  <h2>Payment - ₹750</h2>
+  <form onsubmit="event.preventDefault(); showPage('confirmation');">
+    <label for="cardName">Cardholder Name:</label>
+    <input type="text" id="cardName" required>
+
+    <label for="cardNumber">Card Number:</label>
+    <input type="text" id="cardNumber" maxlength="16" required>
+
+    <label for="expiry">Expiry Date:</label>
+    <input type="text" id="expiry" placeholder="MM/YY" required>
+
+    <label for="cvv">CVV:</label>
+    <input type="text" id="cvv" maxlength="4" required>
+
+    <button type="submit">Pay ₹750</button>
+  </form>
+  <div class="note">This is a fake payment page. No real transaction will occur.</div>
+</div>
+
+<!-- Page 4: Confirmation -->
+<div id="confirmation" class="page">
+  <h2 class="success">✅ Payment Successful!</h2>
+  <p style="text-align: center;">Thank you for registering. We've received your fake payment of ₹750.</p>
+  <a class="btn" onclick="showPage('home')">🔙 Go to Home</a>
+</div>
+
+<script>
+  function showPage(id) {
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(p => p.style.display = 'none');
+    document.getElementById(id).style.display = 'block';
+    window.scrollTo(0, 0);
+  }
+</script>
+
+</body>
+</html>
